@@ -1,3 +1,4 @@
+<% provide(:title, "Contact") %>
 <%= form_with url: '/submit_form', local: true do |form| %>
     <%= form.label :name, 'Your Name:' %>
     <%= form.text_field :name, required: true %>
