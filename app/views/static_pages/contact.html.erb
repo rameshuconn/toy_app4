@@ -1,0 +1,9 @@
+<%= form_with url: '/submit_form', local: true do |form| %>
+    <%= form.label :name, 'Your Name:' %>
+    <%= form.text_field :name, required: true %>
+  
+    <%= form.label :email, 'Your Email:' %>
+    <%= form.email_field :email, required: true %>
+  
+    <%= form.submit 'Submit' %>
+  <% end %>
