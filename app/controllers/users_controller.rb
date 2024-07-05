@@ -19,11 +19,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # @user = User.new(params[:user])    # Not the final implementation!
     if @user.save
-      # Handle a successful save.
-      # Show the newly created user profile
-      # redirect_to @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      # UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email      
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       # render 'new'
       render 'new', status: :unprocessable_entity
